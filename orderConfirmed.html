@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="images/logoo1.jpg" height="50px" width="50px"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="5;url=home.php">
+    <title>Order Confirmed</title>
+    <!-- Fontawesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      section {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background: #d0f7ef;
+      }
+      .modal-box {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        opacity: 0; /* Initially hidden */
+        animation: fadeIn 0.9s forwards; /* Animation for fade-in */
+      }
+      .modal-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 380px;
+        width: 100%;
+        padding: 30px ;
+        border-radius: 24px;
+        background-color: #fff;
+        transition: all 0.9s ease;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+      .modal-box i {
+        font-size: 70px;
+        color: #3ebfbf;
+        animation: rotateIcon 0.9s  forwards; /* Animation for rotateIcon */
+        transform-origin: center; /* Set transform origin for rotation */
+      }
+      .modal-box h2 {
+        margin-top: 20px;
+        font-size: 25px;
+        font-weight: 500;
+        color: #333;
+      }
+      .modal-box h3 {
+        font-size: 16px;
+        margin-top: 20px;
+        font-weight: 400;
+        color: #333;
+        text-align: center;
+      }
+
+      /* Keyframes for fade-in animation */
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes rotateIcon {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="modal-box">
+        <i class="fa-solid fa-circle-check"></i>
+        <h2>Order Confirmed</h2>
+        <h3>Your order has been placed successfully.</h3>
+      </div>
+    </section>
+  </body>
+</html>

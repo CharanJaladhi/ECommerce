@@ -1,0 +1,54 @@
+signup.php-it is a frontend page for user registration
+signup.js-used for custom(client side) validation
+SIGN_UP1.php-used for storing data into the database before storing it send the mail 
+             using phpMailer(change the app password if it is not used for more time by 
+             going in the mail where you use to send mails in googleManageAccount->security->appPasswords
+             ,which generates new one)
+signup.jsp-uses to store data into database using jsp(not used in the application)
+login.php-it is a frontend page for user sign-in.
+LOGIN1.php-php file used to retrieve user data from database and authenticates
+logout.php-used to destroy all the sessions created
+otp_validation.php-frontend page for otp validation at the time of user's registration and password_change time
+otp_validation1.php-used to validate whether user entered and the generated otp matches or not
+password_reset.php-it is a frontend page for user password resetting(the content changes dynamically in it 
+                    based on the email sent or not)
+password_reset_link.php-used for sending password reset link to mail(after sending mail it navigates to
+                        otp validation to verify after verifying it navigates to password_change.php).
+password_change.php-frontend page for changing the password
+password_change1.php-updates the password and confirm password in users table 
+search.php-used to search any product based on its description(here we are adding the suggestions also based on 
+            searched query as categories)
+slidebar.js-used for slidebar moving.
+home.php-it is the frontend home page for website.
+nav.php-it contains the code for nav-bar(and it is common for many files.)
+footer.php-it contains the footer for the website and it is common for many files
+product.php-used to display the products which is retrieved from sql database(NOTE:IT CANT RUN INDIVIDUALLY
+            YOU SHOULD INCLUDE IT IN ANYONE OF PRODUCTS CATEGORIES FILE)
+bag.php-it is a frontend page used to display the items in the cart 
+connection.php-it is the backend page and main page used to connect the database and adds,removes the product items 
+                from the cart and used to update the user profile 
+editProfile.php-frontend page dispalys the user information and enables users to edit their details
+orders.php-it is also frontend page used to display the orders of the user
+checkout.php-it is a frontend page used to enter users information like address..etc for booking
+checkoutBg.php-backend page for inserting the orderd product details along with user into the orders table and 
+                delete the products details from cart.
+contactUs.php-by using thisd page the user can contact developer by sending the mail to the website mail.
+coupon.php-frontend page to display the coupons(it is static)
+filter_product.php-user to display the products after filtering by price using ASC,DESC sql query.
+REMAINING ALL PHP FILES USED FRO DISPLAYING INDIVIDUAL CATEGORY PRODUCTS PAGE.
+
+bag.css-styling for cart,orders page.
+checkout.css-styling for checkout page.
+footer1.css-styling for footer part.
+menwear.css-styling for the indivdual product category page.
+nav.css-it is styling for the nav bar.
+slidebar.css-it is styling file for slide bar present in hone page.
+style.css-it styling for editProfile, signup, login, otp_validation, password_change, password_reset pages.
+
+IMAGES FOLDER CONTAINS IMAGES FOR ALL THE WEBSITE.
+PHPMAILER IS USED TO SEND A MAIL.
+
+
+
+
+
