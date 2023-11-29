@@ -139,7 +139,7 @@ if (isset($_SESSION['userName'])) {
             <input type="email" placeholder="<?php echo $row["eMail"]; ?>" name="myInput2" id="email" oninput="validate_email()">
             <center><span class="err" id="error2"></span></center>
             <label for="password">Password :</label>
-            <input type="password" placeholder="<?php echo $row["userPassword"]; ?>" name="myInput3" id="password" oninput="validate_password()">
+            <input type="password" placeholder="Enter the new password if you want to reset" name="myInput3" id="password" oninput="validate_password()">
             <span class="err" id="error3"></span>
         <button >Save Details</button>
       </form>
