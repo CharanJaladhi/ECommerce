@@ -2,10 +2,10 @@
 session_start();
 
 // Database connection parameters
-$servername = "localhost:3306";
-$username = "root";
-$password = "charan@462";
-$dbname = "EcommerceWebsite";
+$servername = "localhost";
+$username = "id21575166_root";
+$password = "Charan@462";
+$dbname = "id21575166_ecommercewebsite";
 
 // Create a database connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -19,9 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(isset($_POST['confirmPassword']) && isset($_POST['confirmRePassword'])){
         $confirmPassword = $_POST['confirmPassword'];
         $confirmRePassword = $_POST['confirmRePassword'];
+        $hashedPassword = password_hash($confirmPassword, PASSWORD_DEFAULT);
+        $hashedRePassword = password_hash($confirmRePassword, PASSWORD_DEFAULT);
         $email=$_SESSION['mail'];
         $sql = "UPDATE USERS
-                SET userPassword = '$confirmPassword', reEnterUserPassword = '$confirmRePassword'
+                SET userPassword = '$hashedPassword', reEnterUserPassword = '$hashedRePassword'
                 WHERE eMail = '$email'";
         
         if ($conn->query($sql) === TRUE) {
