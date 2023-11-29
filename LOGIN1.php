@@ -1,16 +1,17 @@
 <?php
 session_start();
- //Check if the user is already logged in, redirect to home.php if so
+
+// Check if the user is already logged in, redirect to home.php if so
 if (isset($_SESSION['userName'])) {
     header("Location: home.html");
     exit;
 }
 
 // Database connection parameters
-$servername = "localhost:3306";
-$username = "root";
-$password = "charan@462";
-$dbname = "EcommerceWebsite";
+$servername = "localhost";
+$username = "id21575166_root";
+$password = "Charan@462";
+$dbname = "id21575166_ecommercewebsite";
 
 // Create a database connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -33,22 +34,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Query to check if the user exists in the database
     $sql = "SELECT * FROM USERS WHERE userName = '$username'";
     $result = mysqli_query($conn, $sql);
-    
+
     if ($result) {
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
             $stored_password = $row['userPassword'];
-            
-            // Verify the password
-            if (($password == $stored_password)) {
+
+            // Verify the password using password_verify
+            if (password_verify($password, $stored_password)) {
                 // Authentication successful
-                //echo "Authentication verified";
                 $_SESSION['userName'] = $row['userName'];
-                $_SESSION['userPassword'] = $row['userPassword'];
                 $_SESSION['userMail'] = $row['eMail'];
+
                 echo '<script type="text/javascript">';
-                echo 'alert("Succesfully logged in!");';
-                echo 'window.location.href = "home.php";'; 
+                echo 'alert("Successfully logged in!");';
+                echo 'window.location.href = "home.php";';
                 echo '</script>';
                 exit();
             } else {
@@ -56,14 +56,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo 'alert("Invalid Password!");';
                 echo 'window.history.back();'; // Redirect to another_page
                 echo '</script>';
-               exit;
+                exit;
             }
         } else {
             echo '<script type="text/javascript">';
             echo 'alert("User Not Found!");';
             echo 'window.history.back();'; // Redirect to another_page
             echo '</script>';
-           exit;
+            exit;
         }
     } else {
         echo "Database error: " . mysqli_error($conn);
