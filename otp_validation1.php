@@ -4,9 +4,9 @@ session_start();
 
 // Database Connection
 $servername = "localhost";
-$username = "root";
-$password = "charan@462";
-$dbname = "EcommerceWebsite";
+$username = "id21575166_root";
+$password = "Charan@462";
+$dbname = "id21575166_ecommercewebsite";
 
 // Create a database connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -27,7 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $entered_otp = $_POST["entered_otp"];
         if ($entered_otp == $user_otp) {
             // If OTP is valid, inserting the data into table
-            $sql = "INSERT INTO USERS (userName, eMail, userPassword, reEnterUserPassword, otp) VALUES ('$name', '$email', '$password', '$rePassword', $user_otp)";
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $hashedRePassword = password_hash($rePassword, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO USERS (userName, eMail, userPassword, reEnterUserPassword, otp) VALUES ('$name', '$email', '$hashedPassword', '$hashedRePassword', $user_otp)";
             if ($conn->query($sql) === TRUE) {
                 // Redirect to login page after successful signup
                 echo '<script type="text/javascript">';
